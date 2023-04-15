@@ -1,0 +1,502 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Style Guide" href="style.html" /><link rel="prev" title="planet incremental" href="index.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>Getting started - planet-incremental documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">planet-incremental  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">planet-incremental  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code documentation</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
+<p>This section is intended to help you through the process of obtaining a working binary by building the source code.
+If you just want to launch the game, try the <a class="reference external" href="https://planetincremental.github.io">online version</a>, which is
+automatically deployed with every major release.</p>
+<section id="what-you-need">
+<h2>What you need<a class="headerlink" href="#what-you-need" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>A working computer, tablet, phone, or whatever device you want, as long as it can satisfy all the following
+requirements.</p></li>
+<li><p>Git client.</p></li>
+<li><p>C++23 compatible compiler.</p></li>
+<li><p>CMake.</p></li>
+<li><p>A terminal. Not necessarily needed, but this guide assumes that you use one (and are capable of basic tasks
+such as navigating the directory structure, etc.)</p></li>
+<li><p>Ninja build system. Not necessarily needed, but highly recommended. If you do not wish to use Ninja, be
+sure to remove all occurrences of <code class="docutils literal notranslate"><span class="pre">-GNinja</span></code>, and replace <code class="docutils literal notranslate"><span class="pre">ninja</span></code> command with <code class="docutils literal notranslate"><span class="pre">make</span></code> in the following
+examples.</p></li>
+</ol>
+</section>
+<section id="getting-the-code">
+<h2>Getting the code<a class="headerlink" href="#getting-the-code" title="Permalink to this heading">#</a></h2>
+<p>The proper way to obtain the code is to clone the Git repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/pawel-szajna/planet-incremental.git
+</pre></div>
+</div>
+<p>After cloning the code, enter the repository directory, and initialize the submodules (which contain most of the
+dependencies):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd planet-incremental
+$ git submodule update --init --recursive
+</pre></div>
+</div>
+<p>When this process finishes, you will have a complete copy of the most recent code on your computer. You may use
+the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout release
+</pre></div>
+</div>
+<p>to check out the currently released game version code.</p>
+</section>
+<section id="building-the-code">
+<h2>Building the code<a class="headerlink" href="#building-the-code" title="Permalink to this heading">#</a></h2>
+<p>CMake is used in this project to manage the build system. In order to prepare the CMake configuration, and create
+the build system scripts, you need to run the CMake program in a designated build directory. It is suggested to use
+directory such as <code class="docutils literal notranslate"><span class="pre">build</span></code>, and not run CMake in the root project directory.</p>
+<section id="launching-cmake">
+<h3>Launching CMake<a class="headerlink" href="#launching-cmake" title="Permalink to this heading">#</a></h3>
+<p>In the repository, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir build &amp;&amp; cd build
+$ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Release -DENABLE_UT=OFF
+</pre></div>
+</div>
+<p>This will check if your system has all the needed dependencies, and generate the build scripts.</p>
+<p>If an error is displayed during this phase, it is most probably related to some missing dependencies. Usually, when
+a missing package is reported, googling its name along with the operating system name shows a system package containing
+it. For Windows systems, using a C++ package manager like <code class="docutils literal notranslate"><span class="pre">vcpkg</span></code> might be the easiest way to install them.</p>
+<section id="available-cmake-options">
+<h4>Available CMake options<a class="headerlink" href="#available-cmake-options" title="Permalink to this heading">#</a></h4>
+<p>If you are not interested in available options, and just want to build a working application, feel free to skip this
+section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-GNinja</span></code> option is a CMake instruction to use the Ninja build system generator. By default, on Unix platforms,
+Unix Makefiles is used (and the build is then invoked with the <code class="docutils literal notranslate"><span class="pre">make</span></code> command, instead of <code class="docutils literal notranslate"><span class="pre">ninja</span></code>, which is used
+in the examples), and on Windows platform, some kind of scary magic such as MSBuild or Visual C++ project files.</p>
+<p>The other options are more related to the project:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Debug</span></code>, <code class="docutils literal notranslate"><span class="pre">Release</span></code></p></td>
+<td><p>Release builds enable compiler optimizations, while
+debug builds include debug symbols, which, as the
+name suggests, make debugging easier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-DENABLE_UT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON</span></code>, <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Enables unit tests.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-DENABLE_DOCS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON</span></code>, <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Enables documentation generation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-DPLATFORM</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Web</span></code>, <code class="docutils literal notranslate"><span class="pre">Desktop</span></code></p></td>
+<td><p>Selects the target platform for use in raylib.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="building-the-executable">
+<h3>Building the executable<a class="headerlink" href="#building-the-executable" title="Permalink to this heading">#</a></h3>
+<p>After the CMake generation finishes, you can invoke:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja
+</pre></div>
+</div>
+<p>in the build directory, and the building process will start. Ninja automatically detects how many CPU cores are
+available, and attempts to utilize them all for compilation. After a while, the process should finish.</p>
+<p>If you want to build a specific target, you can specify it with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja incremental
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">incremental</span></code> target is the main game target. Some other targets are mentioned in the sections below.</p>
+</section>
+</section>
+<section id="running-the-game">
+<h2>Running the game<a class="headerlink" href="#running-the-game" title="Permalink to this heading">#</a></h2>
+<p>After the build process finishes, the game file, called <code class="docutils literal notranslate"><span class="pre">incremental</span></code> (or <code class="docutils literal notranslate"><span class="pre">incremental.exe</span></code> on Windows) in the
+<code class="docutils literal notranslate"><span class="pre">bin</span></code> subdirectory within the build directory. So, after the build finishes, you can type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./bin/incremental
+</pre></div>
+</div>
+<p>to start the freshly built binary file.</p>
+</section>
+<section id="building-and-executing-unit-tests">
+<h2>Building and executing unit tests<a class="headerlink" href="#building-and-executing-unit-tests" title="Permalink to this heading">#</a></h2>
+<p>To enable unit tests, you first need to specify the <code class="docutils literal notranslate"><span class="pre">-DENABLE_UT=ON</span></code> option to CMake, then execute <code class="docutils literal notranslate"><span class="pre">ninja</span></code> to
+build all targets.</p>
+<section id="running-all-tests">
+<h3>Running all tests<a class="headerlink" href="#running-all-tests" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">test</span></code> target can be used to run all the unit tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja test
+</pre></div>
+</div>
+<p>A summary of launched tests will be displayed after the execution finishes.</p>
+</section>
+<section id="running-single-module-tests">
+<h3>Running single module tests<a class="headerlink" href="#running-single-module-tests" title="Permalink to this heading">#</a></h3>
+<p>For every module which has unit tests, a binary executable file is created. For instance, one can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./bin/ut/StatisticsUT
+</pre></div>
+</div>
+<p>to launch all the unit tests from the <code class="docutils literal notranslate"><span class="pre">Statistics</span></code> module. The standard Google Test options may be applied, so
+for example, to only run the tests from <code class="docutils literal notranslate"><span class="pre">TrackerTests</span></code> test suite, the following command may be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./bin/ut/StatisticsUT --gtest_filter=&#39;TrackerTests.*&#39;
+</pre></div>
+</div>
+<p>Every module UT executable is, of course, a target available, so it may be built without other targets, for instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja StatisticsUT
+</pre></div>
+</div>
+<p>builds the executable from aforementioned examples.</p>
+</section>
+</section>
+<section id="webassembly-platform">
+<h2>WebAssembly platform<a class="headerlink" href="#webassembly-platform" title="Permalink to this heading">#</a></h2>
+<p>The web version of the game needs Emscripten SDK to be built. In order to set up the environment, please refer to the
+<a class="reference external" href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten docs</a>. Afterwards, a new build directory
+is needed, other than for the desktop target (as the Emscripten SDK wraps CMake and replaces the C++ compiler with
+its own C++–WASM, LLVM-based compiler).</p>
+<section id="building-the-wasm-binary">
+<h3>Building the WASM binary<a class="headerlink" href="#building-the-wasm-binary" title="Permalink to this heading">#</a></h3>
+<p>In the repository, execute the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir build_web &amp;&amp; cd build_web
+$ emcmake cmake .. -GNinja -DCMAKE_BUILD_TYPE=Release -DENABLE_UT=OFF -DPLATFORM=Web
+</pre></div>
+</div>
+<p>Of course, you can use any directory instead of <code class="docutils literal notranslate"><span class="pre">build_web</span></code>, just make sure that you use a different directory
+than for the desktop build. Please note that the command <code class="docutils literal notranslate"><span class="pre">emcmake</span> <span class="pre">cmake</span></code> is not a typo: the <code class="docutils literal notranslate"><span class="pre">emcmake</span></code> wrapper
+needs the full CMake invocation provided.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although disabling unit tests build for web target is recommended, they actually may be compiled and should
+work perfectly well. However running GTest in a web browser through a <code class="docutils literal notranslate"><span class="pre">.html</span></code> file seems… odd.</p>
+<p>If you want, though, there is no one to stop you! (Maybe apart from some symbol export options provided to
+the linker, but if you <em>really</em> want to run the unit tests this way…)</p>
+</div>
+<p>Afterwards, the compilation itself is not really different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja
+</pre></div>
+</div>
+<p>The compiler will provide <code class="docutils literal notranslate"><span class="pre">.html</span></code>, <code class="docutils literal notranslate"><span class="pre">.js</span></code>, and <code class="docutils literal notranslate"><span class="pre">.wasm</span></code> files instead of traditional binaries.</p>
+</section>
+<section id="executing-the-wasm-binary">
+<h3>Executing the WASM binary<a class="headerlink" href="#executing-the-wasm-binary" title="Permalink to this heading">#</a></h3>
+<p>Even though it may initially seem obvious, running the compiled web binary may raise some problems. If you just
+open the <code class="docutils literal notranslate"><span class="pre">.html</span></code> file in your browser, chances are, you will be greeted by an empty page. How come? The safety
+mechanisms in the browser may try to prevent you from running some kinds of code.</p>
+<p>There are many ways to overcome this problem. The quickest one, at least on the Unix platforms (assuming you have
+a Python interpreter at hand), is setting up a simple HTTP server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd bin
+$ python3 -m http.server 8080
+</pre></div>
+</div>
+<p>then navigating to <a class="reference external" href="http://localhost:8080">localhost:8080</a> should take you to the, finally, working web version
+of the game.</p>
+</section>
+</section>
+<section id="generating-documentation">
+<h2>Generating documentation<a class="headerlink" href="#generating-documentation" title="Permalink to this heading">#</a></h2>
+<p>The documentation you are currently reading is generated from RST source files, and Doxygen output from scanning
+project C++ headers. The targets <code class="docutils literal notranslate"><span class="pre">docs_html</span></code>, <code class="docutils literal notranslate"><span class="pre">docs_pdf</span></code>, and <code class="docutils literal notranslate"><span class="pre">docs</span></code> (the last one includes both available
+formats) use Doxygen, Sphinx, and Breathe to generate the documentation.</p>
+<p>Therefore, to generate the documentation, you will need Doxygen, Sphinx, and Breathe available on your system.
+For PDF output, you will need a LaTeX distribution as well.</p>
+<p>To enable the documentation targets, use the <code class="docutils literal notranslate"><span class="pre">ENABLE_DOCS</span></code> option when invoking CMake:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake .. -DENABLE_DOCS=ON -GNinja
+</pre></div>
+</div>
+<p>Afterwards, just invoke the build system with one of the documentations target:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ninja docs_html
+</pre></div>
+</div>
+<p>The generated documentation will be available in <code class="docutils literal notranslate"><span class="pre">docs</span></code> subdirectory within the build directory.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="style.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Style Guide</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Pawel Szajna
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#what-you-need">What you need</a></li>
+<li><a class="reference internal" href="#getting-the-code">Getting the code</a></li>
+<li><a class="reference internal" href="#building-the-code">Building the code</a><ul>
+<li><a class="reference internal" href="#launching-cmake">Launching CMake</a><ul>
+<li><a class="reference internal" href="#available-cmake-options">Available CMake options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-the-executable">Building the executable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-the-game">Running the game</a></li>
+<li><a class="reference internal" href="#building-and-executing-unit-tests">Building and executing unit tests</a><ul>
+<li><a class="reference internal" href="#running-all-tests">Running all tests</a></li>
+<li><a class="reference internal" href="#running-single-module-tests">Running single module tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#webassembly-platform">WebAssembly platform</a><ul>
+<li><a class="reference internal" href="#building-the-wasm-binary">Building the WASM binary</a></li>
+<li><a class="reference internal" href="#executing-the-wasm-binary">Executing the WASM binary</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generating-documentation">Generating documentation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
