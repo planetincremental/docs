@@ -47,7 +47,7 @@ Building the code
 
 CMake is used in this project to manage the build system. In order to prepare the CMake configuration, and create
 the build system scripts, you need to run the CMake program in a designated build directory. It is suggested to use
-directory such as ``build``, and not run CMake in the root project directory.
+a directory such as ``build``, and not run CMake in the root project directory.
 
 
 Launching CMake
@@ -68,7 +68,7 @@ it. For Windows systems, using a C++ package manager like ``vcpkg`` might be the
 Available CMake options
 ```````````````````````
 
-If you are not interested in available options, and just want to build a working application, feel free to skip this
+If you are not interested in available options and just want to build a working application, feel free to skip this
 section.
 
 The ``-GNinja`` option is a CMake instruction to use the Ninja build system generator. By default, on Unix platforms,
@@ -145,7 +145,7 @@ For every module which has unit tests, a binary executable file is created. For 
     $ ./bin/ut/StatisticsUT
 
 to launch all the unit tests from the ``Statistics`` module. The standard Google Test options may be applied, so
-for example, to only run the tests from ``TrackerTests`` test suite, the following command may be used::
+for example, to only run the tests from the ``TrackerTests`` test suite, the following command may be used::
 
     $ ./bin/ut/StatisticsUT --gtest_filter='TrackerTests.*'
 
@@ -153,7 +153,7 @@ Every module UT executable is, of course, a target available, so it may be built
 
     $ ninja StatisticsUT
 
-builds the executable from aforementioned examples.
+builds the executable from the aforementioned examples.
 
 
 WebAssembly platform
@@ -178,13 +178,13 @@ than for the desktop build. Please note that the command ``emcmake cmake`` is no
 needs the full CMake invocation provided.
 
 .. note::
-   Although disabling unit tests build for web target is recommended, they actually may be compiled and should
-   work perfectly well. However running GTest in a web browser through a ``.html`` file seems... odd.
+   Although disabling unit tests build for web platform is recommended, they actually may be compiled and should
+   work perfectly well. However, running GTest in a web browser through a ``.html`` file seems... odd.
 
    If you want, though, there is no one to stop you! (Maybe apart from some symbol export options provided to
    the linker, but if you *really* want to run the unit tests this way...)
 
-Afterwards, the compilation itself is not really different::
+Afterward, the compilation itself is not really different::
 
     $ ninja
 
@@ -222,8 +222,8 @@ To enable the documentation targets, use the ``ENABLE_DOCS`` option when invokin
 
     $ cmake .. -DENABLE_DOCS=ON -GNinja
 
-Afterwards, just invoke the build system with one of the documentations target::
+Afterward, just invoke the build system with one of the documentations target::
 
     $ ninja docs_html
 
-The generated documentation will be available in ``docs`` subdirectory within the build directory.
+The generated documentation will be available in the ``docs`` subdirectory within the build directory.
