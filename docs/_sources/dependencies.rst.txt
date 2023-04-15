@@ -7,6 +7,8 @@ to create this project.
 
 * `Emscripten <https://emscripten.org/>`_ – WebAssembly compiler toolchain.
   Licensed under the `MIT License/NCSA Open Source License <https://github.com/emscripten-core/emscripten/blob/main/LICENSE>`_.
+* `{fmt} <https://fmt.dev/>`_ – a modern formatting library.
+  Licensed under the `MIT License <https://github.com/fmtlib/fmt/blob/master/LICENSE.rst>`_.
 * `furo <https://pradyunsg.me/furo/>`_ – a clean documentation theme.
   Licensed under the `MIT License <https://github.com/pradyunsg/furo/blob/main/LICENSE>`_.
 * `GoogleTest <https://google.github.io/googletest/>`_ – Google Testing and Mocking Framework.
