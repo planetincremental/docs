@@ -8,6 +8,7 @@ This document is a technical overview of the *planet incremental* project.
    :caption: Contents
 
    getting_started
+   dependencies
    style
    code
 
